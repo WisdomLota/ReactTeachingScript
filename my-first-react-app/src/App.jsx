@@ -1,27 +1,24 @@
 // src/App.jsx
-import { useState, useEffect } from 'react'; // Import useEffect!
+import { useState, useEffect } from 'react';
 
 function App() {
   const [userName, setUserName] = useState('Guest');
   const [isLoading, setIsLoading] = useState(true);
 
-  // This effect runs once after the initial render
   useEffect(() => {
-    console.log('Effect is running!'); // See this in your browser's console
-
-    // Simulate fetching data from an API
-    setTimeout(() => {
-      setUserName('John Doe'); // Update state after 2 seconds
+    console.log('Effect is running!');
+    const timer = setTimeout(() => { // Store the timeout ID
+      setUserName('John Doe');
       setIsLoading(false);
       console.log('Data fetched!');
-    }, 3000); // 2-second delay
+    }, 2000);
 
-    // Optional: Cleanup function for effects that set up subscriptions or timers
-    // return () => {
-    //   console.log('Cleaning up effect!');
-    //   // Clear timeout or unsubscribe here if needed
-    // };
-  }, []); // Empty dependency array: runs only once on mount
+    // Cleanup function: runs when component unmounts or before effect re-runs
+    return () => {
+      console.log('Cleaning up effect!');
+      clearTimeout(timer); // Clear the timeout if component unmounts before it fires
+    };
+  }, []); // Empty dependency array
 
   return (
     <div>
