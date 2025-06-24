@@ -1,23 +1,26 @@
 // src/App.jsx
-import { useState } from 'react'; // Don't forget to import useState! 
+import { useState } from 'react';
+import Button from './Button'; // Import our Button component
+import "./App.css"; // Importing CSS for styling
 
 function App() {
-  const [count, setCount] = useState(0); // Initialize count state to 0
+  const [count, setCount] = useState(0);
 
   function increment() {
-    setCount(count + 1); // Update the state
+    setCount(count + 1);
   }
 
   function decrement() {
-    setCount(count - 1); // Update the state
+    setCount(count - 1);
   }
 
   return (
     <div>
-      <h1>Simple Counter</h1>
+      <h1>Reusable Counter with Button Component</h1>
       <p>Current count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      {/* Now using our Button component! */}
+      <Button label="Increment" onClick={increment} />
+      <Button label="Decrement" onClick={decrement} />
     </div>
   )
 }
