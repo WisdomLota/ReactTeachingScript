@@ -1,26 +1,28 @@
 // src/App.jsx
 import { useState } from 'react';
-import './App.css'; // Assuming you have some styles in App.css
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Let's start as logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const items = ['Learn React', 'Build a Project', 'Deploy App', 'Master Hooks']; // Our list of data
 
   return (
     <div>
       <h1>Conditional Rendering Example</h1>
-      {isLoggedIn && <p>Welcome back, user!</p>} {/* Renders only if isLoggedIn is true */}
-
-      {/* Another way using ternary */}
+      {isLoggedIn && <p>Welcome back, user!</p>}
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logout</button>
       ) : (
         <button onClick={() => setIsLoggedIn(true)}>Login</button>
       )}
 
-      {/* What if we want to show a loading state? */}
-      {/* Imagine this is coming from an API call */}
-      {/* const [isLoading, setIsLoading] = useState(true); */}
-      {/* {isLoading ? <p>Loading data...</p> : <p>Data loaded!</p>} */}
+      <hr /> {/* A horizontal line for separation */}
+
+      <h2>My Learning Path</h2>
+      <ul>
+        {items.map((item, index) => ( // Using .map() to iterate
+          <li key={item}>{item}</li> // Using item itself as key (assuming they're unique strings)  // In a real app, use a unique ID: <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
     </div>
   );
 }
