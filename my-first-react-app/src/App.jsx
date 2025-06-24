@@ -1,10 +1,12 @@
-// src/App.jsx (simplified for styling demo)
+// src/App.jsx
+import './App.css'; // Make sure you import the CSS file!
+
 function App() {
   return (
-    <div style={{ backgroundColor: '#f0f0f0', padding: '20px', borderRadius: '10px', fontFamily: 'Arial, sans-serif' }}>
+    <div className="app-container"> {/* Use className instead of class */}
       <h1>My Stylish React App</h1>
-      <p style={{ color: '#333', fontSize: '18px' }}>This text is styled inline!</p>
-      <button style={{ backgroundColor: 'rebeccapurple', color: 'white', border: 'none', padding: '10px 15px', borderRadius: '5px', cursor: 'pointer' }}>
+      <p className="styled-paragraph">This text is styled with global CSS!</p>
+      <button className="button-primary"> {/* Assuming you have a .button-primary in App.css */}
         Styled Button
       </button>
     </div>
