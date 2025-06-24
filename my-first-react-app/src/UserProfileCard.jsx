@@ -1,8 +1,7 @@
 // src/UserProfileCard.jsx
-function UserProfileCard() {
-  const userName = "Alice Wonderland";
-  const userBio = "Exploring the rabbit hole of React development.";
-  const profilePic = "https://via.placeholder.com/150";
+function UserProfileCard(props) { // Now accepts 'props' as an argument
+  // We can destructure props right here for cleaner code!
+  const { userName, userBio, profilePic } = props; // 
 
   return (
     <div style={{ border: '1px solid #ccc', padding: '20px', borderRadius: '8px', textAlign: 'center', maxWidth: '300px', margin: '20px auto' }}>
@@ -13,5 +12,4 @@ function UserProfileCard() {
   );
 }
 
-export default UserProfileCard; // We need to export our component to use it elsewhere.
-
+export default UserProfileCard;

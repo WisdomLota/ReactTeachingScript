@@ -6,8 +6,16 @@ function App() {
   return (
     <div>
       <h1>My Awesome React App</h1>
-      <UserProfileCard /> {/* Use our component like an HTML tag! */}
-      <UserProfileCard /> {/* See? Reusable! */}
+      <UserProfileCard
+        userName="John Doe"
+        userBio="Passionate about web development and coffee."
+        profilePic="https://via.placeholder.com/150/FF5733/FFFFFF?text=JD"
+      />
+      <UserProfileCard
+        userName="Jane Smith"
+        userBio="UI/UX designer with a love for clean code."
+        profilePic="https://via.placeholder.com/150/33FF57/FFFFFF?text=JS"
+      />
     </div>
   )
 }
