@@ -1,21 +1,23 @@
 // src/App.jsx
-import "./App.css"
-import UserProfileCard from './UserProfileCard'; // Import our new component
+import { useState } from 'react'; // Don't forget to import useState! 
 
 function App() {
+  const [count, setCount] = useState(0); // Initialize count state to 0
+
+  function increment() {
+    setCount(count + 1); // Update the state
+  }
+
+  function decrement() {
+    setCount(count - 1); // Update the state
+  }
+
   return (
     <div>
-      <h1>My Awesome React App</h1>
-      <UserProfileCard
-        userName="John Doe"
-        userBio="Passionate about web development and coffee."
-        profilePic="https://via.placeholder.com/150/FF5733/FFFFFF?text=JD"
-      />
-      <UserProfileCard
-        userName="Jane Smith"
-        userBio="UI/UX designer with a love for clean code."
-        profilePic="https://via.placeholder.com/150/33FF57/FFFFFF?text=JS"
-      />
+      <h1>Simple Counter</h1>
+      <p>Current count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
     </div>
   )
 }
